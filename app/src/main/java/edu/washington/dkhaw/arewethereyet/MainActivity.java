@@ -2,23 +2,15 @@ package edu.washington.dkhaw.arewethereyet;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import java.util.regex.Pattern;
-
 
 public class MainActivity extends ActionBarActivity {
 
@@ -69,8 +61,7 @@ public class MainActivity extends ActionBarActivity {
         phoneNumber = etPhoneNumber.getText().toString();
         EditText etMinutes = (EditText) findViewById(R.id.etMinutes);
         int minutes = Integer.parseInt(etMinutes.getText().toString());
-        // TODO: add !message.isEmpty() && phoneNumber.matches("\\d{9}")
-        if (minutes > 0) {
+        if (!message.isEmpty() && phoneNumber.matches("\\d{10}") && minutes > 0) {
             return true;
         } else {
             return false;
